@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <cstdlib>
 
-Planet::Planet(int distance, int id){
+Planet::Planet(int distance){
    this->id = id;
    this->distance = distance;
    this->pos = rand() % 360;
@@ -18,7 +18,7 @@ int Planet::orbit(){
    return this->pos;
 }
 
-int Planet::getID(){
+long Planet::getID(){
    return this->id;
 }
 int Planet::getDistance(){
