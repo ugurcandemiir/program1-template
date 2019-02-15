@@ -1,6 +1,6 @@
 #ifndef VECTOR_H
 #define VECTOR_H
-#include "Planet.h"
+#include "Vector.h"
 class Vector{
 private:
     int index;
