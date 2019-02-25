@@ -13,7 +13,6 @@ public:
     Planet* read(int index)
     bool remove(int index)
     unsigned size()
-
     //you may add any additional methodas you may need.
 };
 #endif

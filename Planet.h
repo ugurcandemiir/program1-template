@@ -8,19 +8,12 @@ private:
     int distance;
     char type;
 public:
-    Planet(){this->id=-1;};
-    Planet(int distance, int id);
+    Planet();
+    Planet(int distance);
     int orbit();
-    long getID();
+    long int getID();
     int getDistance();
     int getPos();
-    char getType();
-    void setID(int);
-    void setDistance(int);
-    void setPos(int);
-    void setType(int);
-
-
-    //you may add any additional methods you may need.
+    char getchar();
 };
 #endif

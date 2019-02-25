@@ -12,7 +12,7 @@ private:
 class List
 {
 private:
-	Node *head,*current,*previous;
+	Node *head,*current;
 	unsigned size;
 public:
 	List();

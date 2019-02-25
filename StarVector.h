@@ -1,23 +1,22 @@
-#ifndef STAR_H
-#define STAR_H
+#ifndef STAR_VH
+#define STAR_VH
 #include "Planet.h"
-class Star{
+
+class StarVector{
 private:
     int current_planets;
     int next_id;
 public:
     Planet **planets;
-    Star();
-    ~Star();
+    StarVector();
+    ~StarVector();
     long addPlanet();
     bool removePlanet(int);
-    Planet getFurthest();
     Planet * getPlanet(int);
     void orbit();
     void printStarInfo();
-    int getCurrentNumPlanets() {
+    unsigned int getCurrentNumPlanets() {
       return this->current_planets;
     }
-    //you may add any additional methodas you may need.
-};
+}
 #endif

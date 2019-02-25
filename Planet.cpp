@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 Planet::Planet(int distance){
-   this->id = id;
+  this->id = long(this);
    this->distance = distance;
    this->pos = rand() % 360;
    char arrayNum[3] = {'r', 'h', 'g' };
@@ -30,12 +30,4 @@ int Planet::getPos(){
 char Planet::getType(){
    return type;
 }
-void Planet::setID(int i ){
-   this->id = i ;
-}
-void Planet::setDistance(int d){
-   this->distance = d;
-}
-void Planet::setPos(int p){
-   this->pos = p;
-}
+

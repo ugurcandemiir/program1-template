@@ -1,4 +1,4 @@
-//
+
 #include "Planet.h"
 #include "Vector.h"
 
@@ -12,7 +12,7 @@ unsigned Vector::size(){
 }
 	
 void Vector::insert(int index, Planet *p){			
-	if(planets.size() >= index)	
+	if(this->size >= index)	
 		Planet ** planets = new Planet*[this->size+1];
 		Planet *temp = new Planet(index+1);
 		planets[this->index] = temp; 
@@ -33,10 +33,10 @@ Planet* Vector::read(int index){
 }
 
 bool Vector::remove(int index){
-	Planet **p1 = new Planet*[planets.size()-1];
+	Planet **p1 = new Planet*[this->size-1];
     int j = 0;
     bool flag = false;
-    for (int i = 0; i < planets.size(); i++){
+    for (int i = 0; i < this->size; i++){
       if ( (i+1) == index){
         delete planets[i];
         planets[i] = NULL;
