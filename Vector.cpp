@@ -3,7 +3,7 @@
 #include "Vector.h"
 
 Vector::Vector(){
-	Planet ** p = NULL;
+	Planet ** planets = NULL;
 	this->size = 0;
 }
 
@@ -11,14 +11,14 @@ unsigned Vector::size(){
 	return this->size;	
 }
 	
-
 void Vector::insert(int index, Planet *p){			
-	if(p.size() < index)	
-		Planet ** p = new Planet*[size+1];
+	if(planets.size() >= index)	
+		Planet ** planets = new Planet*[this->size+1];
 		Planet *temp = new Planet(index+1);
-		p[this->index] = temp; 
+		planets[this->index] = temp; 
 	else{
-		Planet **p = new Planet[size++];			
+		this->size = index+1;
+		Planet **planets = new Planet*[this->size];			
 	}	
 }
 
@@ -27,22 +27,33 @@ Planet* Vector::read(int index){
 		return NULL;
 	}
 	else{
-		Planet *temp = this->p[index];
+		Planet *temp = planets[index];
 		return temp;
 	}
 }
 
-bool Vector::remove(){
-	bool flag = TRUE;
-	for(int i=0; i<this->size; i++){
-		if(i == index){
-			delete p[i];
-			p[i] = NULL;
-			this->size--;
-		}
-	}
-	if(flag){ return flag;}
-	return flag;
+bool Vector::remove(int index){
+	Planet **p1 = new Planet*[planets.size()-1];
+    int j = 0;
+    bool flag = false;
+    for (int i = 0; i < planets.size(); i++){
+      if ( (i+1) == index){
+        delete planets[i];
+        planets[i] = NULL;
+        flag = true;
+      }else{
+        p1[j] = planets[i];
+        j++;
+      }
+    }
+    if(flag){
+      this->size--;
+    }
+    delete[] planets;
+    planets = NULL;
+    planets = p1;
+    p1 = NULL;
+    return flag;
 }
 
 

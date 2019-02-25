@@ -18,8 +18,8 @@ long Star::addPlanet(){
       planets[i]= NULL;
     }
     Planet* new_p = new Planet(rand() % 3000,current_planets+1); //3
-    p [current_planets] = new_p ;
-    current_planets++;
+    p [this->current_planets] = new_p ;
+    this->current_planets++;
     planets= p;
     p = NULL;
     return new_p->getID();
@@ -43,7 +43,7 @@ bool Star::removePlanet(int id){
         b++;
     }
   }
-  if (flag){           current_planets--;}
+  if (flag){this->current_planets--;}
 
   delete [] planets;
   planets = p1;

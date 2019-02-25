@@ -18,7 +18,7 @@ int Planet::orbit(){
    return this->pos;
 }
 
-long Planet::getID(){
+long int Planet::getID(){
    return this->id;
 }
 int Planet::getDistance(){
