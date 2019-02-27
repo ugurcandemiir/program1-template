@@ -14,6 +14,7 @@ List::~List() {
 	}
 }
 
+
 void List::insert(int index, Planet * p){
 	Node *temp = new Node();
 	temp->planet = p;

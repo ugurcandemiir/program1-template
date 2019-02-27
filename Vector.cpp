@@ -44,6 +44,7 @@ void Vector::insert(int index, Planet * planet) {
 	}
 }
 
+
 bool Vector::remove(int delindex) {
 	if(delindex<int(current_size)) {
 		Planet ** p1 = new Planet*[current_size-1];

@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 Planet::Planet(int distance){
   this->id = long(this);
    this->distance = distance;

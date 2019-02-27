@@ -5,8 +5,9 @@
 
 class Node {
     public:
+      
 
-        Planet *planet;\
+        Planet *planet;
         Node *next;
         Node *prev;
         Node() {
