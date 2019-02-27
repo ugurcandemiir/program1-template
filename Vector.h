@@ -1,18 +1,15 @@
 #ifndef VECTOR_H
 #define VECTOR_H
-#include "Vector.h"
-class Vector{
-private:
-    int index;
-    int size;
-public:
-    Vector **vectors;
-    Vector();
-    ~Vector();
-    void insert(int index, Planet * p);
-    Planet* read(int index)
-    bool remove(int index)
-    unsigned size()
-    //you may add any additional methodas you may need.
+#include "Planet.h"
+class Vector {      
+    private:
+        Planet ** planets;
+        unsigned size;
+    public:
+        Vector();
+        ~Vector();
+        void insert(int index, Planet *p);
+        Planet* read(int index);
+        bool remove(int index);
 };
 #endif
