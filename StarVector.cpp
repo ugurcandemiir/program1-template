@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <cstdlib>
 
+
 Star::Star(){
     this->current_planets =  0;
     this->next_id = 0;

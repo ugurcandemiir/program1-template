@@ -9,6 +9,7 @@ Star::Star(){
     planets  = NULL;
 }
 
+
 Star::~Star(){}
 
 long Star::addPlanet(){
