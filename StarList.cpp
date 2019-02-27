@@ -12,12 +12,12 @@ Star::Star(){
 Star::~Star(){}
 
 long Star::addPlanet(){
-    Planet**p = new Planet*[current_planets+1]; // 1
+    Planet**p = new Planet*[current_planets+1]; 
     for (int i = 0 ; i < current_planets ; i++){
       p[i] = planets[i] ;
       planets[i]= NULL;
     }
-    Planet* new_p = new Planet(rand() % 3000,current_planets+1); //3
+    Planet* new_p = new Planet(rand() % 3000,current_planets+1);
     p [this->current_planets] = new_p ;
     this->current_planets++;
     planets= p;
