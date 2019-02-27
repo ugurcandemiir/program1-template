@@ -5,7 +5,8 @@
 
 class Node {
     public:
-        Planet *planet;
+
+        Planet *planet;\
         Node *next;
         Node *prev;
         Node() {
@@ -21,10 +22,10 @@ class Node {
         }
 };
 
-class List {      
+class List {
     private:
         Node *head, *tail;
-        unsigned size;
+        unsigned size_of_list;
     public:
         List();
         ~List();
@@ -32,5 +33,8 @@ class List {
         Planet* read(int index);
         bool remove(int index);
         void display();
+        unsigned int size() {
+          return this->size_of_list;
+        }
 };
 #endif

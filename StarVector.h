@@ -2,14 +2,14 @@
 #define STAR_VH
 #include "Planet.h"
 
-class StarVector{
+class Starvector{
 private:
     int current_planets;
     int next_id;
 public:
     Planet **planets;
-    StarVector();
-    ~StarVector();
+    Starvector();
+    ~Starvector();
     long addPlanet();
     bool removePlanet(int);
     Planet * getPlanet(int);

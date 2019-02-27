@@ -2,13 +2,13 @@
 #define STAR_LH
 #include "Planet.h"
 
-class StarList{
+class Starlist{
 private:
     int current_planets;
     int next_id;
 public:
-    StarList();
-    ~StarList();
+    Starlist();
+    ~Starlist();
     long addPlanet();
     bool removePlanet(int);
     Planet * getPlanet(int);

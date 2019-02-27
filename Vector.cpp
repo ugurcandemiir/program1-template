@@ -5,11 +5,11 @@ using namespace std;
 
 Vector::Vector() {
 	this->planets = NULL;
-	this->size = 0;
+	this->current_size = 0;
 }
 
 Vector::~Vector() {
-	for(int i=0; i<int(size); i++) {
+	for(int i=0; i<int(current_size); i++) {
 		delete planets[i];
 		planets[i] = NULL;
 	}
@@ -17,19 +17,19 @@ Vector::~Vector() {
 }
 
 void Vector::insert(int index, Planet * planet) {
-	int temp_size = size;
+	int temp_size = current_size;
 	if(index<temp_size) {
 		Planet ** p1 = new Planet*[temp_size+1];
 		for(int i=0; i<temp_size; i++) {
 	        p1[i] = planets[i];
 	        planets[i] = NULL;
 	    }
-	    for(int i=p1_size; i>index; i--) {
+	    for(int i=temp_size; i>index; i--) { // temp_size
 			p1[i] = p1[i-1];
 		}
 		delete[] planets;
 		p1[index] = planet;
-		size++;
+		current_size++;
 		planets = p1;
 	} else {
 		Planet ** p1 = new Planet*[index+1];
@@ -39,30 +39,30 @@ void Vector::insert(int index, Planet * planet) {
 	    }
 	    delete[] planets;
 		p1[index] = planet;
-		size=index+1;
+		current_size=index+1;
 		planets = p1;
 	}
 }
 
 bool Vector::remove(int delindex) {
-	if(delindex<int(size)) {
-		Planet ** p1 = new Planet*[size-1];
+	if(delindex<int(current_size)) {
+		Planet ** p1 = new Planet*[current_size-1];
     	int index = 0;
-    	for(int i=0; i<int(size); i++) {
+    	for(int i=0; i<int(current_size); i++) {
     		if(delindex != i) {
         		p1[index] = planets[i];
         		planets[i] = NULL;
         		index++;
         	} else {
         		if(planets[i] != NULL){
-        			delete planets[i];	
-        		} 
+        			delete planets[i];
+        		}
         		planets[i] = NULL;
         	}
     	}
     	delete[] planets;
     	planets = p1;
-    	size--;
+    	current_size--;
     	return true;
     }
 	else return false;
@@ -71,10 +71,6 @@ bool Vector::remove(int delindex) {
 Planet * Vector::read(int index) {
 	if(planets[index]!=NULL){
 		return planets[index];
-	} 
+	}
 	return NULL;
-}
-
-long int Vector::unsigned(){
-    return this->size;
 }

@@ -5,29 +5,29 @@ using namespace std;
 List::List() {
 	head = NULL;
 	tail = NULL;
-	size = 0;
+	size_of_list = 0;
 }
 
 List::~List() {
-	for(int i=0; i<int(size); i++){
+	for(int i=0; i<int(size_of_list); i++){
 		this->remove(0);
-	} 
+	}
 }
 
 void List::insert(int index, Planet * p){
 	Node *temp = new Node();
-	temp->p = p;
+	temp->planet = p;
 	if(head == NULL){
 		head = temp;
 		tail = temp;
-		size++;
+		size_of_list++;
 	} else if(index == 0){
 		temp->next = head;
 		head->prev = temp;
 		head = temp;
 	}
 	else{
-		if( index<int(size) ){
+		if( index<int(size_of_list) ){
 			int len = 0;
 			Node *traversal = head;
 			while( len!=index && traversal->next != NULL){
@@ -44,20 +44,20 @@ void List::insert(int index, Planet * p){
 			temp->prev = tail;
 			tail = temp;
 		}
-		size++;
+		size_of_list++;
 	}
 }
 
 bool List::remove(int index){
-	if( index>=int(size) ){
+	if( index>=int(size_of_list) ){
 		return false;
 	}
-	if( size==1 ){
+	if( size_of_list==1 ){
 		delete head;
 		delete tail;
 		head = NULL;
 		tail = NULL;
-		size--;
+		size_of_list--;
 		return true;
 	}
 	if( index==0 ){
@@ -67,14 +67,14 @@ bool List::remove(int index){
 		t->next=NULL;
 		t->prev=NULL;
 		delete t;
-		size--;
+		size_of_list--;
 		return true;
 	}
-	if(index==int(size)-1){
+	if(index==int(size_of_list)-1){
 		tail = tail->prev;
 		delete tail->next;
 		tail->next = NULL;
-		size--;
+		size_of_list--;
 		return true;
 	}
 	Node *traversal = head;
@@ -87,14 +87,14 @@ bool List::remove(int index){
 	Node *prev_node = traversal->prev;
 	prev_node->next = next_node;
 	next_node->prev = prev_node;
-	size--;
+	size_of_list--;
 	delete traversal;
 	traversal=NULL;
 	return true;
 }
 
 Planet* List::read(int index){
-	if( index>int(size) ){ 
+	if( index>int(size_of_list) ){
 		return NULL;
 	}
 	int len = 0;

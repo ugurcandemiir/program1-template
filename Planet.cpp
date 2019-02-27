@@ -1,5 +1,8 @@
 #include "Planet.h"
 #include <stdio.h>
+#include <cstdlib>
+
+
 using namespace std;
 
 Planet::Planet(int distance){
@@ -18,4 +21,3 @@ int Planet::orbit(){
    }
    return this->pos;
 }
-
