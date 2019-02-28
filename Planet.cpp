@@ -7,11 +7,11 @@ using namespace std;
 
 
 Planet::Planet(int distance){
-  this->id = long(this);
+  this->id = (long int)this;
    this->distance = distance;
    this->pos = rand() % 360;
    char arrayNum[3] = {'r', 'h', 'g' };
-   arrayNum[rand() % 3];
+   this->type = arrayNum[rand() % 3];
 }
 
 int Planet::orbit(){

@@ -3,7 +3,7 @@
 #include "Planet.h"
 class Vector {
     private:
-        Planet ** planetsm;
+        Planet ** planets;
         unsigned current_size;
     public:
         Vector();

@@ -19,7 +19,7 @@ Vector::~Vector(){
 void Vector::insert(int index, Planet * planet){
 	int temp_size = current_size;
 	if(index<temp_size){
-		Planet ** p1 = new Planet*[temp_size+1];
+		Planet ** p1 = new Planet*[temp_size+1]();
 		for(int i=0; i<temp_size; i++){
 	        p1[i] = planets[i];
 	        planets[i] = NULL;
@@ -29,10 +29,10 @@ void Vector::insert(int index, Planet * planet){
 		}
 		delete[] planets;
 		p1[index] = planet;
-		current_size++;
+		current_size+=1;
 		planets = p1;
 	} else {
-		Planet ** p1 = new Planet*[index+1];
+		Planet ** p1 = new Planet*[index+1]();
 		for(int i=0; i<temp_size; i++) {
 	        p1[i] = planets[i];
 	        planets[i] = NULL;
@@ -47,22 +47,22 @@ void Vector::insert(int index, Planet * planet){
 
 bool Vector::remove(int delindex) {
 	if(delindex<int(current_size)) {
-		Planet ** p1 = new Planet*[current_size-1];
+		Planet ** p1 = new Planet*[current_size-1]();
     	int index = 0;
     	for(int i=0; i<int(current_size); i++) {
-    		if(delindex != i) {
-        		p1[index] = planets[i];
-        		planets[i] = NULL;
-        		index++;
+    		if(delindex == i) {
+			if(planets[i] != NULL){
+				delete planets[i];
+			}
         	} else {
         		p1[index] = planets[i];
         		index++;
-        		planets[i] = NULL;
         	}
+		planets[i] = NULL;
         }
     	delete[] planets;
     	planets = p1;
-    	current_size--;
+    	current_size-=1;
     	return true;
     }
 	else return false;

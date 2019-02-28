@@ -83,8 +83,7 @@ Starlist::Starlist(){
     this->curr_planets = 0;
 }
 
-Starlist::~Starlist(){
-}
+Starlist::~Starlist(){}
 
 long Starlist::addPlanet(){
     Planet *new_planet = new Planet(rand() % 3000);
@@ -135,11 +134,10 @@ unsigned int Starlist::getCurrentNumPlanets(){
 }
 
 Starvector::Starvector(){
-    curr_planets = 0;
+   this->curr_planets = 0;
 }
 
-Starvector::~Starvector(){
-}
+Starvector::~Starvector(){}
 
 long Starvector::addPlanet(){
     Planet *new_planet = new Planet(rand() % 3000);

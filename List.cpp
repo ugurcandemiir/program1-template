@@ -9,9 +9,14 @@ List::List() {
 }
 
 List::~List() {
-	for(int i=0; i<int(size_of_list); i++){
-		this->remove(0);
+	while(head != tail){
+		head = head->next;
+		delete head->prev;
+		head->prev = NULL;
 	}
+	delete tail;
+	head = NULL;
+	tail = NULL;
 }
 
 
