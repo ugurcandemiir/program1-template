@@ -3,24 +3,24 @@
 using namespace std;
 #include "Vector.h"
 
-Vector::Vector() {
+Vector::Vector(){
 	this->planets = NULL;
 	this->current_size = 0;
 }
 
-Vector::~Vector() {
-	for(int i=0; i<int(current_size); i++) {
+Vector::~Vector(){
+	for(int i=0; i<int(current_size); i++){
 		delete planets[i];
 		planets[i] = NULL;
 	}
-	delete planets;
+	delete[] planets;
 }
 
-void Vector::insert(int index, Planet * planet) {
+void Vector::insert(int index, Planet * planet){
 	int temp_size = current_size;
-	if(index<temp_size) {
+	if(index<temp_size){
 		Planet ** p1 = new Planet*[temp_size+1];
-		for(int i=0; i<temp_size; i++) {
+		for(int i=0; i<temp_size; i++){
 	        p1[i] = planets[i];
 	        planets[i] = NULL;
 	    }
@@ -55,12 +55,11 @@ bool Vector::remove(int delindex) {
         		planets[i] = NULL;
         		index++;
         	} else {
-        		if(planets[i] != NULL){
-        			delete planets[i];
-        		}
+        		p1[index] = planets[i];
+        		index++;
         		planets[i] = NULL;
         	}
-    	}
+        }
     	delete[] planets;
     	planets = p1;
     	current_size--;
@@ -70,6 +69,9 @@ bool Vector::remove(int delindex) {
 }
 
 Planet * Vector::read(int index) {
+	if(index > int(current_size)){
+		return NULL;
+	}
 	if(planets[index]!=NULL){
 		return planets[index];
 	}
