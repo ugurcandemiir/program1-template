@@ -1,4 +1,5 @@
 #include "Star.h"
+#include "Star.h"
 #include "Planet.h"
 #include "Planet.h"
 #include "Vector.h"
@@ -107,7 +108,7 @@ int main(){
     vect = NULL;
 
     cerr << "\n\t=========Test #9 Passed...            ===========\n\n";
-*/
+
     cerr << "\t-----------------------------------\n";
     cerr << "\t-          Part B: Lists        -\n";
     cerr << "\t-----------------------------------\n";
@@ -125,11 +126,10 @@ int main(){
     }
     assert(list->size() == 10);
     //***** Test that out of bounds indexes are appended to the list ****/
-   list->insert(20, new Planet(0));
+    list->insert(20, new Planet(0));
     assert(list->size() == 11);
 
     cerr << "\n\t\tTest #11: Passed ...\n\n";
-
 
     cerr << "\n\t=========Test #12: Linked List Read===========\n\n";
     for(i = 0 ; i < 11 ; i++){
@@ -153,7 +153,7 @@ int main(){
     delete list;
     list = NULL;
     cerr << "\n\t\tTest #13 Passed...\n\n";
-*/
+
     cerr << "\n\t=========Test #14: Star Classes ===========\n\n";
     Starlist * sl = new Starlist();
     assert(sl->getCurrentNumPlanets() == 0);
@@ -270,6 +270,6 @@ int main(){
     profile_time = ((stop.tv_sec* 1000000) + stop.tv_usec) - ((start.tv_sec* 1000000) + start.tv_usec);
     printf("\tCompleted Starlist remove profile time = %lf\n", profile_time);
 
-    cerr << "\n\t========= Don't forget to submit your hash and check your code with Valgrind! ===========\n\n"; */
+    cerr << "\n\t========= Don't forget to submit your hash and check your code with Valgrind! ===========\n\n";
     return 0;
 }
